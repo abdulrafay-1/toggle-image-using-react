@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import onImg from "./images/wepik-export-20240107201427z92h.jpeg"
+import offImg from "./images/wepik-export-20240107201441xBDp.jpeg"
+import { useState } from 'react';
 
 function App() {
+  const [isBlubOn, toggleBlub] = useState(false)
+  const bulbSrc = isBlubOn ? onImg : offImg;
+  const onOffText = isBlubOn ? "Colors On" : "Colors Off";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Toggle Image</h1>
+      <img src={bulbSrc} alt='flower' /><br /><br />
+      <button onClick={() => toggleBlub(!isBlubOn)}>{onOffText}</button>
     </div>
   );
 }
